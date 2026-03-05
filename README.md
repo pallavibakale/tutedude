@@ -1,25 +1,33 @@
-# TD10 - CSS Orbit Animation Notes
+# TD10 - My Simple Animation Practice
 
-## 1) What the animation does
+## What I built
 
-The washing machine image now follows a visible circular orbit instead of only spinning in place. I used a shifted `transform-origin` so rotation happens around a point below the image.
+I made a small page with one image (washing machine) and one animation. The goal was to understand orbit motion, not build a full responsive website.
 
-## 2) Keyframe breakdown
+## What the animation does
 
-- `0%`: `rotate(0deg) scaleY(1)` → starting point, normal shape.
-- `70%`: `rotate(360deg) scaleY(1)` → one full circular orbit around the custom pivot.
-- `80%`: `rotate(360deg) scaleY(1.1)` → slight vertical squeeze/stretch to simulate vibration.
-- `100%`: `rotate(360deg) scaleY(1)` → reset shape before next loop.
+The image moves in a circular path by rotating around a point below itself (`transform-origin`).
+After one orbit, it does a tiny `scaleY` squeeze so it feels like a machine vibration.
 
-## 3) How to run locally
+## Keyframes in my words
 
-1. Open the `TD10` folder.
-2. Open `index.html` in a browser.
-3. You should see the machine image moving in a circular path with a small bounce effect.
+- `0%`: start position
+- `70%`: complete one full orbit (`rotate(360deg)`)
+- `80%`: quick squeeze (`scaleY(1.08)`)
+- `100%`: back to normal size
 
-## 4) Challenges and how I solved them
+## How to run
 
-- **Challenge:** initial animation looked like spinning in place.
-- **Fix:** added `transform-origin: 50% 145%` so rotation uses an external pivot and creates orbital motion.
-- **Challenge:** motion looked too rigid.
-- **Fix:** kept a short `scaleY` phase at `80%` for a machine-like vibration.
+1. Open `TD10/index.html` in browser.
+2. Watch the machine icon move in a circle.
+
+## What confused me + how I solved it
+
+- At first it only looked like spinning in place.
+- I learned that `transform-origin` controls the pivot point, so I moved it below the image.
+- I kept the CSS simple and added comments saying **why** each keyframe exists.
+
+## Accessibility choices (simple)
+
+- I used a real `<h1>` for the page heading.
+- I wrote a clear `alt` text for the image so screen readers can describe it.

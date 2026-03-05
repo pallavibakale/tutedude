@@ -1,247 +1,83 @@
 * {
-  font-family: system-ui;
-  color: #515050;
+  box-sizing: border-box;
 }
+
 body {
   margin: 0;
-}
-nav {
-  padding: 1em 0;
-  box-shadow: 0px 9px 10px rgb(0 0 0 / 4%);
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 10%;
+  font-family: Arial, sans-serif;
+  background: #f6f8fb;
+  color: #333;
 }
 
-nav .logo {
-  margin: 16px 32px;
-  font-size: 30px;
-  font-weight: bold;
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
 }
 
-.nav-links {
-  list-style: none;
+h1 {
+  margin-bottom: 8px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.demo {
+  min-height: 360px;
   display: flex;
-  padding: 0;
-  gap: 10px;
-}
-
-.nav-links li {
-  margin: 0 32px;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  font-size: 18px;
-}
-
-nav button {
-  margin: 0 32px;
-  background-color: rgb(219, 239, 245);
-  color: rgb(0, 140, 255);
-  border: none;
-  padding: 20px 32px;
-  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #c4ccda;
   border-radius: 12px;
+  background: #ffffff;
 }
 
-nav .mobile-nav {
-  display: none;
-}
-.hero {
-  margin: 4em 10rem;
-  display: flex;
-  gap: 2rem;
-}
-.hero-title p {
-  font-size: 3rem;
-  line-height: 4rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.hero-title .blue {
-  color: rgb(0, 174, 255);
-}
-
-.hero-desc {
-  font-size: 1.4rem;
-  margin-top: 10px;
-}
-
-.hero button {
-  color: white;
-  background: rgb(0, 140, 255);
-  border: none;
-  border-radius: 16px;
-  padding: 24px 40px;
-  font-size: 18px;
-  margin: 2rem 0;
-}
-
-.hero-image img {
-  width: 100%;
+.machine {
+  width: 230px;
   height: auto;
-  max-width: 420px;
-  /* Orbit pivot is placed below the image center so rotation creates a circular path. */
-  transform-origin: 50% 145%;
-  animation: machine 2s ease-out infinite;
+
+  /* WHY: moving origin below the image center creates a circular orbit path. */
+  transform-origin: 50% 150%;
+
+  animation: machineOrbit 3s linear infinite;
 }
 
-@keyframes machine {
-  /* 0%: Start of orbit at initial angle with normal shape. */
+@keyframes machineOrbit {
+  /* 0%: starting angle, normal shape. */
   0% {
     transform: rotate(0deg) scaleY(1);
   }
 
-  /* 70%: Rotate 360 degrees around the custom transform-origin (true orbital path). */
+  /* 70%: full 360deg rotation to complete one visible orbit. */
   70% {
     transform: rotate(360deg) scaleY(1);
   }
 
-  /* 80%: Keep orbit angle and add slight squeeze/stretch for machine vibration effect. */
+  /* 80%: small squeeze to make it feel less robotic. */
   80% {
-    transform: rotate(360deg) scaleY(1.1);
+    transform: rotate(360deg) scaleY(1.08);
   }
 
-  /* 100%: Return to normal vertical scale before loop restarts. */
+  /* 100%: return to normal before next loop starts. */
   100% {
     transform: rotate(360deg) scaleY(1);
   }
 }
 
-@media (max-width: 767px) {
-  .body {
-    margin: 0;
-  }
-  nav {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 4px;
-  }
-  .hero {
-    flex-direction: column;
-    margin: 1em 0.5em;
-    gap: 0rem;
-  }
-  nav .logo {
-    margin: 8px 40px 8px 0px;
-  }
-  nav .nav-links {
-    display: none;
-  }
-  nav .mobile-nav {
-    display: block;
-    align-content: center;
-    margin: 2px;
-    position: relative;
-  }
-  .mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 88px;
-    right: 0px;
-    background-color: black;
-    color: white;
-    width: 70vw;
-    height: calc(100vh - 60px);
-    list-style-type: none;
-    margin: 0;
-    text-align: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateX(16px);
-    pointer-events: none;
-    visibility: hidden;
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease,
-      visibility 0.25s ease;
-  }
-  .mobile-nav-btn {
-    background-color: transparent;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .mobile-menu-toggle {
-    display: none;
+/* Simple responsive step: reduce image size on small screens. */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px auto;
   }
 
-  nav .mobile-menu-toggle:checked ~ .mobile-nav-links {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-    visibility: visible;
+  .demo {
+    min-height: 280px;
   }
 
-  nav .mobile-nav-btn:focus ~ .mobile-nav-links {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-    visibility: visible;
-  }
-  .mobile-nav-links li {
-    margin: 16px 0;
-  }
-  .mobile-nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 0;
-  }
-  .hero-title p {
-    font-size: 2rem;
-    line-height: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  .hero-desc {
-    font-size: 1rem;
-    margin-top: 6px;
-  }
-  nav button {
-    padding: 6px 12px;
-    margin: 6px;
-  }
-  .hero button {
-    width: auto;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  body {
-    margin: 0;
-  }
-  .hero {
-    margin: 1.5em 1rem;
-    gap: 0rem;
-  }
-  nav {
-    display: flex;
-    gap: 0px;
-    justify-content: space-evenly;
-    margin: 0 10px;
-  }
-  nav .logo {
-    margin: 8px 16px;
-  }
-  nav button {
-    margin: 0;
-    padding: 10px 12px;
-  }
-  .nav-links li {
-    margin: 0 10px;
-  }
-  .hero-title p {
-    font-size: 2.5rem;
-    line-height: 3rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  .hero-desc {
-    font-size: 1.2rem;
-    margin-top: 6px;
+  .machine {
+    width: 170px;
   }
 }
