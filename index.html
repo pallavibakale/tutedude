@@ -3,54 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TD5: CSS</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>TD4:CSS hero section</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="main">
-      <div class="main-img">
+    <nav>
+      <div class="logo">Logo</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <button>Username</button>
+    </nav>
+    <div class="hero">
+      <div class="hero-title">
+        <p>
+          Revitalize Your <br />
+          Clothes with Expert <br />
+          <span class="blue">Laundry Services!</span>
+        </p>
+        <div class="hero-desc">
+          From premium dry cleaning to swift wash and fold, we deliver care and
+          convenience. Schedule a pickup and rediscover the freshness of your
+          clothes today!
+        </div>
+        <button>Book a service today!</button>
+      </div>
+      <div class="hero-image">
         <img
-          src="https://cdn3d.iconscout.com/3d/premium/thumb/laundry-3d-icon-png-download-8530782.png?f=webp"
-          alt="machine"
+          src="https://cdn3d.iconscout.com/3d/premium/thumb/laundry-3d-icon-png-download-8530782.png?f=webp" alt="washing washer"
         />
       </div>
-      <div class="main-content">
-        <div class="form-heading">
-          <h2>Hello Again!</h2>
-          <div>Welcome back! we missed you!</div>
-        </div>
-        <form action="" method="post">
-          <div class="email">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Emailid@site.com"
-              required
-            />
-          </div>
-          <div class="password">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Password"
-              required
-            />
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-              class="forgot-password"
-              >Forgot Password</a
-            >
-          </div>
-          <button type="submit">Login</button>
-        </form>
-        <div class="register">
-          <p>Not a member? <a href="" class="register-link">Register now</a></p>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
