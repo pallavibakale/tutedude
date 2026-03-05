@@ -2,6 +2,9 @@
   font-family: system-ui;
   color: #515050;
 }
+body {
+  margin: 0;
+}
 nav {
   padding: 1em 0;
   box-shadow: 0px 9px 10px rgb(0 0 0 / 4%);
@@ -41,6 +44,10 @@ nav button {
   font-weight: bold;
   border-radius: 12px;
 }
+
+nav .mobile-nav {
+  display: none;
+}
 .hero {
   margin: 4em 10rem;
   display: flex;
@@ -72,12 +79,19 @@ nav button {
   margin: 2rem 0;
 }
 
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 767px) {
   .body {
     margin: 0;
   }
   nav {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 4px;
   }
   .hero {
     flex-direction: column;
@@ -85,11 +99,47 @@ nav button {
     gap: 0rem;
   }
   nav .logo {
-    margin: 8px 16px;
+    margin: 8px 40px 8px 0px;
   }
   nav .nav-links {
     display: none;
   }
+  nav .mobile-nav {
+    display: block;
+    align-content: center;
+    margin: 2px;
+  }
+  .mobile-nav-links {
+    display: none;
+  }
+  .mobile-nav-btn {
+    background-color: transparent;
+  }
+  nav .mobile-nav-btn:focus ~ .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: black;
+    color: white;
+    width: 70vw;
+    height: 100vh;
+    box-shadow: 0px 9px 10px rgb(0 0 0 / 4%);
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    li {
+      margin: 16px 0;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+    }
+  }
+
   .hero-title p {
     font-size: 2rem;
     line-height: 2.5rem;
@@ -102,6 +152,7 @@ nav button {
   }
   nav button {
     padding: 6px 12px;
+    margin: 6px;
   }
   .hero button {
     width: auto;
