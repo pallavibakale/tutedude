@@ -82,26 +82,35 @@ nav .mobile-nav {
 .hero-image img {
   width: 100%;
   height: auto;
+  max-width: 420px;
+  /* Orbit pivot is placed below the image center so rotation creates a circular path. */
+  transform-origin: 50% 145%;
   animation: machine 2s ease-out infinite;
 }
 
 @keyframes machine {
+  /* 0%: Start of orbit at initial angle with normal shape. */
   0% {
-    transform: rotate(0deg) translateY(10px) rotate(0deg);
+    transform: rotate(0deg) scaleY(1);
   }
+
+  /* 70%: Rotate 360 degrees around the custom transform-origin (true orbital path). */
   70% {
-    transform: rotate(360deg) translateY(10px) rotate(-360deg);
+    transform: rotate(360deg) scaleY(1);
   }
+
+  /* 80%: Keep orbit angle and add slight squeeze/stretch for machine vibration effect. */
   80% {
-    transform: scaleY(1.1);
+    transform: rotate(360deg) scaleY(1.1);
   }
+
+  /* 100%: Return to normal vertical scale before loop restarts. */
   100% {
-    transform: scaleY(1);
+    transform: rotate(360deg) scaleY(1);
   }
 }
 
 @media (max-width: 767px) {
-  /* Responsive choice: switch to compact flex nav and hide desktop links on small screens. */
   .body {
     margin: 0;
   }
@@ -161,11 +170,6 @@ nav .mobile-nav {
     display: none;
   }
 
-  /*
-    Human explanation of the sibling selector pattern:
-    if the checkbox is checked, target the next sibling menu and reveal it.
-    This keeps the menu open until the checkbox is toggled off.
-  */
   nav .mobile-menu-toggle:checked ~ .mobile-nav-links {
     opacity: 1;
     transform: translateX(0);
@@ -173,7 +177,6 @@ nav .mobile-nav {
     visibility: visible;
   }
 
-  /* Original learning pattern using :focus (less reliable on tap/blur interactions). */
   nav .mobile-nav-btn:focus ~ .mobile-nav-links {
     opacity: 1;
     transform: translateX(0);
