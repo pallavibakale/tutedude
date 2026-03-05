@@ -77,16 +77,27 @@ nav .mobile-nav {
   padding: 24px 40px;
   font-size: 18px;
   margin: 2rem 0;
-  transition: all 0.5s ease;
-}
-
-.hero button:hover {
-  transform: rotateZ(-10deg) scale(1.1);
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
+  animation: machine 2s ease-out infinite;
+}
+
+@keyframes machine {
+  0% {
+    transform: rotate(0deg) translateY(10px) rotate(0deg);
+  }
+  70% {
+    transform: rotate(360deg) translateY(10px) rotate(-360deg);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @media (max-width: 767px) {
