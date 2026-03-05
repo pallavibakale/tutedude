@@ -85,6 +85,7 @@ nav .mobile-nav {
 }
 
 @media (max-width: 767px) {
+  /* Responsive choice: switch to compact flex nav and hide desktop links on small screens. */
   .body {
     margin: 0;
   }
@@ -108,27 +109,60 @@ nav .mobile-nav {
     display: block;
     align-content: center;
     margin: 2px;
+    position: relative;
   }
   .mobile-nav-links {
-    display: none;
-  }
-  .mobile-nav-btn {
-    background-color: transparent;
-  }
-  nav .mobile-nav-btn:focus ~ .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 60px;
     right: 0px;
     background-color: black;
     color: white;
     width: 70vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     list-style-type: none;
     margin: 0;
     text-align: center;
     justify-content: center;
+    opacity: 0;
+    transform: translateX(16px);
+    pointer-events: none;
+    visibility: hidden;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+  .mobile-nav-btn {
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  /*
+    Human explanation of the sibling selector pattern:
+    if the checkbox is checked, target the next sibling menu and reveal it.
+    This keeps the menu open until the checkbox is toggled off.
+  */
+  nav .mobile-menu-toggle:checked ~ .mobile-nav-links {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  /* Original learning pattern using :focus (less reliable on tap/blur interactions). */
+  nav .mobile-nav-btn:focus ~ .mobile-nav-links {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
   }
   .mobile-nav-links li {
     margin: 16px 0;
