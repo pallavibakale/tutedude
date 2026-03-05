@@ -1,49 +1,17 @@
-body {
-  background-color: rgb(255, 123, 0);
+.content {
+  margin: 10% 25%;
+  box-sizing: border-box;
 }
-
-.head {
-  color: darkblue;
+img {
+  width: 100%;
 }
-
-.head:nth-child(2) span {
-  color: red;
-}
-
-.head#bglime {
-  background-color: lime;
-}
-
-p {
+button {
+  background-image: linear-gradient(to right, #ffd902, #34e608);
+  font-size: 20px;
+  padding: 1vw 2vw;
   color: white;
-}
-
-p#para {
-  color: green;
-}
-
-p#para span {
-  color: black;
-  font-size: 25px;
-}
-
-ul {
-  color: white;
-}
-
-ul li:first-child a {
-  color: green;
-  background-color: yellow;
-}
-
-ul li:nth-child(2) a {
-  background-color: purple;
-}
-
-ol li:nth-child(2) {
-  color: blue;
-}
-
-ol li:nth-child(3) {
-  color: red;
+  text-transform: capitalize;
+  border: 1px solid black;
+  width: 100%;
+  margin-top: -4px;
 }
