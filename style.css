@@ -77,6 +77,11 @@ nav .mobile-nav {
   padding: 24px 40px;
   font-size: 18px;
   margin: 2rem 0;
+  transition: all 0.5s ease;
+}
+
+.hero button:hover {
+  transform: rotateZ(-10deg) scale(1.1);
 }
 
 .hero-image img {
