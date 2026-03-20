@@ -1,29 +1,20 @@
-const division = (a, b) => {
-  console.log("Diving " + a + " by " + b);
-  return new Promise((resolve, reject) => {
-    if (b === 0) {
-      reject("Error: Division by zero is not allowed.");
+let username = document.querySelector("#nameInput");
+let submitBtn = document.querySelector("#submitBtn");
+let displayName = document.getElementsByClassName("name")[0];
+
+submitBtn.addEventListener("click", () => {
+  displayName.textContent = ", " + username.value;
+});
+
+let colorBtns = document.getElementsByClassName("color-box");
+
+Array.from(colorBtns).forEach((box) => {
+  box.addEventListener("click", () => {
+    let color = box.getAttribute("data-color");
+    if (color != "yellow") {
+      box.setAttribute("style", "color: white; background-color:" + color);
+    } else {
+      box.setAttribute("style", "background-color:" + color);
     }
-    resolve(a / b);
   });
-};
-
-division(10, 2)
-  .then((result) => console.log("Result: ", result))
-  .catch((err) => console.log(err));
-
-division(10, 0)
-  .then((result) => console.log("Result: ", result))
-  .catch((err) => console.log(err));
-
-division(10, 3)
-  .then((result) => console.log("Result: ", result))
-  .catch((err) => console.log(err));
-
-division(30, 0)
-  .then((result) => console.log("Result: ", result))
-  .catch((err) => console.log(err));
-
-division(100, 5)
-  .then((result) => console.log("Result: ", result))
-  .catch((err) => console.log(err));
+});

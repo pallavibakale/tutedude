@@ -1,83 +1,28 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f6f8fb;
-  color: #333;
+header {
+  background-color: #f1f6e7;
+  text-align: center;
+  padding: 20px;
 }
 
 .container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 16px;
+  margin: 50px auto;
+  text-align: center;
 }
 
-h1 {
-  margin-bottom: 8px;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-.demo {
-  min-height: 360px;
+.color-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  border: 2px dashed #c4ccda;
-  border-radius: 12px;
-  background: #ffffff;
+  gap: 20px;
 }
 
-.machine {
-  width: 230px;
-  height: auto;
-
-  /* WHY: moving origin below the image center creates a circular orbit path. */
-  transform-origin: 50% 150%;
-
-  animation: machineOrbit 3s linear infinite;
+.color-box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid grey;
+  cursor: pointer;
+  align-content: center;
 }
 
-@keyframes machineOrbit {
-  /* 0%: starting angle, normal shape. */
-  0% {
-    transform: rotate(0deg) scaleY(1);
-  }
-
-  /* 70%: full 360deg rotation to complete one visible orbit. */
-  70% {
-    transform: rotate(360deg) scaleY(1);
-  }
-
-  /* 80%: small squeeze to make it feel less robotic. */
-  80% {
-    transform: rotate(360deg) scaleY(1.08);
-  }
-
-  /* 100%: return to normal before next loop starts. */
-  100% {
-    transform: rotate(360deg) scaleY(1);
-  }
-}
-
-/* Simple responsive step: reduce image size on small screens. */
-@media (max-width: 600px) {
-  .container {
-    margin: 20px auto;
-  }
-
-  .demo {
-    min-height: 280px;
-  }
-
-  .machine {
-    width: 170px;
-  }
+.input-container {
+  margin-top: 30px;
 }
